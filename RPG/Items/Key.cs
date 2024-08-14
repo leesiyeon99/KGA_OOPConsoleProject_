@@ -8,5 +8,6 @@ namespace RPG.Items
 {
     public class Key : Item
     {
+
     }
 }

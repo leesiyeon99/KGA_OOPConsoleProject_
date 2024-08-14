@@ -63,6 +63,7 @@ namespace RPG.Items
                     key.name = "열쇠";
                     key.cost = 0;
                     key.explain = "어딘가를 열 수 있는 열쇠이다.";
+                    key.type = ItemType.Key;
                     return key;
                 }
                 else

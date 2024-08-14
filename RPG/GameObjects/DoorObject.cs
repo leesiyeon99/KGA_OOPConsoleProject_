@@ -10,18 +10,17 @@ namespace RPG.GameObjects
 {
     public class DoorObject : GameObject
     {
-        Item Item = Item.ItemFactory.Create(ItemType.Key);
-        Player Player;
         ConsoleKey inputKey;
         public DoorObject(Scene scene) : base(scene)
         {
+
         }
 
         public override void Interaction(Player player)
         {
             Render();
 
-            if (DoorOpen(Item))
+            if (DoorOpen(FirstScene.Item))
             {
                 removeWhenInteract = true;
             }
@@ -65,6 +64,7 @@ namespace RPG.GameObjects
                         Player.playerPos.y = 9;
                         Console.SetCursorPosition(0, Console.WindowHeight - 11);
                         Console.WriteLine("열쇠가 없습니다.");
+                        Thread.Sleep(1000);
                         return false;
                     }
                 }

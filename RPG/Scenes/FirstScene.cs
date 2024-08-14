@@ -1,4 +1,5 @@
 ﻿using RPG.GameObjects;
+using RPG.Items;
 
 namespace RPG.Scenes
 {
@@ -9,6 +10,7 @@ namespace RPG.Scenes
         public ConsoleKey inputKey;
         private Player Player;
         private Inventory inventory;
+        static public Item Item;
 
         private List<GameObject> gameObjects;
 
@@ -34,6 +36,7 @@ namespace RPG.Scenes
                 { 'f','f','f','f','f','f','f','t','P','t','f','f','f','f','f','f'}, //13
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}
            };
+            Item = Item.ItemFactory.Create(ItemType.Key);
             game.MapChange(this);
             Player = new Player(3, 1, Map);
             gameObjects = new List<GameObject>();

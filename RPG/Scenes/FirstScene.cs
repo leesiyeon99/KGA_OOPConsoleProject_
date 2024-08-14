@@ -25,7 +25,7 @@ namespace RPG.Scenes
                 { 'f','t','f','t','f','f','f','t','f','f','f','f','f','f','t','f'}, //4
                 { 'f','t','t','t','t','m','f','t','t','t','t','t','t','t','t','f'}, //5
                 { 'f','t','f','f','f','f','f','t','f','f','t','f','f','f','t','f'}, //6
-                { 'f','t','t','t','t','t','t','t','h','f','t','t','t','f','t','f'}, //7
+                { 'f','t','t','t','t','t','t','t','r','f','t','t','t','f','t','f'}, //7
                 { 'f','t','f','f','f','f','f','f','f','f','f','f','t','f','t','f'}, //8
                 { 'f','t','t','t','t','k','f','t','t','t','t','t','t','f','m','f'}, //9
                 { 'f','f','f','f','f','f','f','f','d','f','f','f','f','f','f','f'}, //10
@@ -72,6 +72,12 @@ namespace RPG.Scenes
             princess.simbol = "P";
             princess.color = ConsoleColor.Magenta;
             gameObjects.Add(princess);
+
+            RestRoomObject restRoom = new RestRoomObject(this);
+            restRoom.pos = new Point(8, 7);
+            restRoom.simbol = "R";
+            restRoom.color = ConsoleColor.Blue;
+            gameObjects.Add(restRoom);
         }
 
         private void PrintMap()

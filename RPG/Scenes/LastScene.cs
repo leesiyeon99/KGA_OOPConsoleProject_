@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RPG.Scenes
+﻿namespace RPG.Scenes
 {
     public class LastScene : Scene
     {
@@ -12,9 +6,8 @@ namespace RPG.Scenes
         public ConsoleKey inputKey;
         public LastScene(Game game) : base(game)
         {
-            game.MapChange(this);
             Map = new char[,]
-{
+            {
                 // 0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}, //0
                 { 'f','t','t','t','f','t','t','t','t','t','t','t','t','f','s','f'}, //1
@@ -31,7 +24,7 @@ namespace RPG.Scenes
                 { 'f','f','f','f','f','f','f','t','t','t','f','f','f','f','f','f'}, //12
                 { 'f','f','f','f','f','f','f','t','P','t','f','f','f','f','f','f'}, //13
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}
-};
+            };
         }
 
         public override void Enter()
@@ -39,6 +32,7 @@ namespace RPG.Scenes
             Console.Clear();
             Console.WriteLine("다음 맵으로 이동합니다...");
             Thread.Sleep(1000);
+            game.MapChange(this);
         }
 
         public override void Exit()

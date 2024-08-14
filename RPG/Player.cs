@@ -9,7 +9,7 @@ namespace RPG
 {
     public class Player
     {
-        public Point playerPos;
+        static public Point playerPos;
         public char[,] Map;
         static public int money = 500;
         static public int attack = 20;
@@ -26,6 +26,7 @@ namespace RPG
             playerPos = point;
             Map = maps;
         }
+
 
         public Player()
         {

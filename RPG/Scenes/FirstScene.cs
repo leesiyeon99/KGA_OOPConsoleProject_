@@ -28,7 +28,7 @@ namespace RPG.Scenes
                 { 'f','t','t','t','t','m','f','t','t','t','t','t','t','t','t','f'}, //5
                 { 'f','t','f','f','f','f','f','t','f','f','t','f','f','f','t','f'}, //6
                 { 'f','t','t','t','t','t','t','t','r','f','t','t','t','f','t','f'}, //7
-                { 'f','t','f','f','f','f','f','f','f','f','f','f','t','f','t','f'}, //8
+                { 'f','m','f','f','f','f','f','f','f','f','f','f','t','f','t','f'}, //8
                 { 'f','t','t','t','t','k','f','t','t','t','t','t','t','f','m','f'}, //9
                 { 'f','f','f','f','f','f','f','f','d','f','f','f','f','f','f','f'}, //10
                 { 'f','f','f','f','f','f','f','t','t','t','f','f','f','f','f','f'}, //11
@@ -93,6 +93,12 @@ namespace RPG.Scenes
             shop.simbol = "S";
             shop.color = ConsoleColor.Cyan;
             gameObjects.Add(shop);
+
+            MonsterObject monster = new MonsterObject(this);
+            monster.pos = new Point(1, 8);
+            monster.simbol = "J";
+            monster.color = ConsoleColor.Red;
+            gameObjects.Add(monster);
         }
 
         private void PrintMap()

@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using RPG.Monsters;
 using RPG.Scenes;
 using static System.Formats.Asn1.AsnWriter;
 
@@ -53,15 +54,15 @@ namespace RPG
             curScene.Enter();
         }
 
-        //public void StartBattle(Monster monster)
-        //{
-        //    prevScene = curScene;
-        //    curScene.Exit();
-        //    curScene = scenes[(int)SceneType.Battle];
-        //    BattleScene battleScene = (BattleScene)curScene;
-        //    battleScene.SetBattle(player, monster);
-        //    curScene.Enter();
-        //}
+        public void StartBattle(Monster monster)
+        {
+            prevScene = curScene;
+            curScene.Exit();
+            curScene = scenes[(int)SceneType.Battle];
+            BattleScene battleScene = (BattleScene)curScene;
+            battleScene.SetBattle(player, monster);
+            curScene.Enter();
+        }
 
         public void Over()
         {
@@ -74,7 +75,7 @@ namespace RPG
 
             scenes = new Scene[(int)SceneType.Size];
             scenes[(int)SceneType.Title] = new TitleScene(this);
-            //scenes[(int)SceneType.Battle] = new BattleScene(this);
+            scenes[(int)SceneType.Battle] = new BattleScene(this);
             scenes[(int)SceneType.Inventory] = new InventoryScene(this);
             scenes[(int)SceneType.ShopMenu] = new ShopMenuScene(this);
             scenes[(int)SceneType.ShopPurchase] = new ShopPurchaseScene(this);

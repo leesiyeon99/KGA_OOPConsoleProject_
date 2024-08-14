@@ -41,7 +41,11 @@ namespace RPG
             curScene = scenes[(int)sceneType];
             curScene.Enter();
         }
-
+        public void MapChange(Scene scene)
+        {
+            curScene = scene;
+            prevScene = curScene;
+        }
         public void ReturnScene()
         {
             curScene.Exit();
@@ -71,7 +75,7 @@ namespace RPG
             scenes = new Scene[(int)SceneType.Size];
             scenes[(int)SceneType.Title] = new TitleScene(this);
             //scenes[(int)SceneType.Battle] = new BattleScene(this);
-            //scenes[(int)SceneType.Inventory] = new InventoryScene(this);
+            scenes[(int)SceneType.Inventory] = new InventoryScene(this);
             //scenes[(int)SceneType.Shop] = new ShopScene(this);
             scenes[(int)SceneType.FirstMap] = new FirstScene(this);
 

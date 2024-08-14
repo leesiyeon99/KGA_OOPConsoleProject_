@@ -12,12 +12,12 @@ namespace RPG.Items
 
         public void Use(Player player)
         {
-            player.hp += hp;
-            if (player.hp >= 100)
+            Player.hp += hp;
+            if (Player.hp >= 100)
             {
-                player.hp = 100;
+                Player.hp = 100;
             }
-            Console.WriteLine($"체력이 회복 됐습니다. 현재 체력은 {player.hp}입니다.");
+            Console.WriteLine($"체력이 회복 됐습니다. 현재 체력은 {Player.hp}입니다.");
             Thread.Sleep(1000);
         }
     }

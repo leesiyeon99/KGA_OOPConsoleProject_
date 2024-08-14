@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace RPG.GameObjects
 {
-    public class Money : GameObject
+    public class MoneyObject : GameObject
     {
-        public Player player;
-        public Money(Scene scene) : base(scene)
+        public MoneyObject(Scene scene) : base(scene)
         {
-            player = new Player();
         }
 
         public override void Interaction(Player player)
         {
-            this.player.GetMoney();
+            player.GetMoney();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace RPG
 
         public Inventory()
         {
-            items = new List<Item>(MAX);
+           items = new List<Item>(MAX);
         }
 
         public void ShowAllItem()
@@ -31,7 +31,6 @@ namespace RPG
                 Console.WriteLine($"설명: {items[i].explain}");
                 Console.WriteLine();
             }
-
         }
 
         public bool AddItem(Item item)
@@ -43,6 +42,7 @@ namespace RPG
 
             items.Add(item);
             return true;
+
         }
 
 
@@ -50,7 +50,5 @@ namespace RPG
         {
             return items.Remove(item);
         }
-
-
     }
 }

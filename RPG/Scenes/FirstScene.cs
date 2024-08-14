@@ -8,6 +8,7 @@ namespace RPG.Scenes
         private Point playerPos;
         public ConsoleKey inputKey;
         private Player Player;
+        private Inventory inventory;
 
         private List<GameObject> gameObjects;
 
@@ -33,11 +34,11 @@ namespace RPG.Scenes
                 { 'f','f','f','f','f','f','f','t','P','t','f','f','f','f','f','f'}, //13
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}
            };
-
+            game.MapChange(this);
             Player = new Player(3, 1, Map);
             gameObjects = new List<GameObject>();
 
-            Money money1 = new Money(this);
+            MoneyObject money1 = new MoneyObject(this);
             money1.pos = new Point(5, 5);
             money1.simbol = "M";
             money1.color = ConsoleColor.Yellow;
@@ -45,21 +46,21 @@ namespace RPG.Scenes
             gameObjects.Add(money1);
 
 
-            Money money2 = new Money(this);
+            MoneyObject money2 = new MoneyObject(this);
             money2.pos = new Point(12, 3);
             money2.simbol = "M";
             money2.color = ConsoleColor.Yellow;
             money2.removeWhenInteract = true;
             gameObjects.Add(money2);
 
-            Money money3 = new Money(this);
+            MoneyObject money3 = new MoneyObject(this);
             money3.pos = new Point(14, 9);
             money3.simbol = "M";
             money3.color = ConsoleColor.Yellow;
             money3.removeWhenInteract = true;
             gameObjects.Add(money3);
 
-            Key key = new Key(this);
+            KeyObject key = new KeyObject(this);
             key.pos = new Point(5, 9);
             key.simbol = "K";
             key.color = ConsoleColor.DarkYellow;
@@ -130,10 +131,19 @@ namespace RPG.Scenes
             }
         }
 
+        private void OpenInventory()
+        {
+            if (inputKey == ConsoleKey.E)
+            {
+                game.ChangeScene(SceneType.Inventory);
+            }
+        }
+
         public override void Update()
         {
             Player.MovePlayer(inputKey);
             Interaction();
+            OpenInventory();
         }
 
         private void Interaction()
@@ -143,7 +153,7 @@ namespace RPG.Scenes
                 if (Player.playerPos.x == gameObject.pos.x &&
                     Player.playerPos.y == gameObject.pos.y)
                 {
-                    gameObject.Interaction(game.Player);
+                    gameObject.Interaction(Player);
                     if (gameObject.removeWhenInteract)
                     {
                         gameObjects.Remove(gameObject);

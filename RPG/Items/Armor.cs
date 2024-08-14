@@ -12,7 +12,7 @@ namespace RPG.Items
 
         public void Gain(Player user)
         {
-            player.defense += defense;
+            Player.defense += defense;
         }
     }
 }

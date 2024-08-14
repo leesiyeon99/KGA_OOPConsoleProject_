@@ -57,6 +57,14 @@ namespace RPG.Items
                     randomPotion.luck = randomLuck;
                     return randomPotion;
                 }
+                else if (type == ItemType.Key)
+                {
+                    Key key = new Key();
+                    key.name = "열쇠";
+                    key.cost = 0;
+                    key.explain = "어딘가를 열 수 있는 열쇠이다.";
+                    return key;
+                }
                 else
                 {
                     Console.WriteLine("해당 아이템 타입이 없습니다.");

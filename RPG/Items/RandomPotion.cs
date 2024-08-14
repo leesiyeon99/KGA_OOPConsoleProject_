@@ -14,8 +14,8 @@ namespace RPG.Items
         {
             Random random = new Random();
             luck = random.Next(1, 100);
-            player.lucky += luck;
-            Console.WriteLine($"행운이 {luck}만큼 증가했습니다. 현재 행운은{player.lucky}입니다.");
+            Player.lucky += luck;
+            Console.WriteLine($"행운이 {luck}만큼 증가했습니다. 현재 행운은{Player.lucky}입니다.");
             Thread.Sleep(1000);
         }
     }

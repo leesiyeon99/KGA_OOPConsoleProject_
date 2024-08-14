@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPG.Items;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,13 @@ namespace RPG
     {
         public Point playerPos;
         public char[,] Map;
-        public int money;
-        public int attack;
-        public int lucky;
-        public int defense;
-        public int hp;
+        static public int money = 500;
+        static public int attack = 20;
+        static public int lucky = 0;
+        static public int defense = 20;
+        static public int hp = 100;
         public int MaxHp = 100;
+        Inventory inventory;
         public Player(int x, int y, char[,] maps)
         {
             Point point = new Point(3, 1);
@@ -27,10 +29,28 @@ namespace RPG
 
         public Player()
         {
-            money = 500;
-            attack = 20;
-            defense = 20;
-            hp = 100;
+        }
+        public void UseItem(Item item)
+        {
+            if (item is IUseable)
+            {
+                IUseable useable = (IUseable)item;
+                useable.Use(this);
+                inventory.RemoveItem(item);
+            }
+            else
+            {
+                Console.WriteLine($"{item.name}은 사용할 수 없는 아이템입니다.");
+                Thread.Sleep(1000);
+            }
+        }
+        public void ShowState()
+        {
+            Console.WriteLine($"골드: {money}");
+            Console.WriteLine($"플레이어 공격력: {attack}");
+            Console.WriteLine($"플레이어 방어력: {defense}");
+            Console.WriteLine($"플레이어 행운: {lucky}");
+            Console.WriteLine($"플레이어 체력: {hp} / {MaxHp}");
         }
 
         public void GetMoney()

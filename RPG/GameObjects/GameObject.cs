@@ -15,7 +15,7 @@ namespace RPG.GameObjects
 
         public ConsoleColor color;
         public Point pos;
-        public char simbol;
+        public string simbol;
         public bool removeWhenInteract;
 
         public GameObject(Scene scene)

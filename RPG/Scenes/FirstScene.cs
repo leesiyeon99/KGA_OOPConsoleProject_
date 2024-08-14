@@ -36,6 +36,28 @@ namespace RPG.Scenes
 
             Player = new Player(3, 1, Map);
             gameObjects = new List<GameObject>();
+
+            Money money1 = new Money(this);
+            money1.pos = new Point(5, 5);
+            money1.simbol = "M";
+            money1.color = ConsoleColor.Yellow;
+            money1.removeWhenInteract = true;
+            gameObjects.Add(money1);
+
+
+            Money money2 = new Money(this);
+            money2.pos = new Point(12, 3);
+            money2.simbol = "M";
+            money2.color = ConsoleColor.Yellow;
+            money2.removeWhenInteract = true;
+            gameObjects.Add(money2);
+
+            Money money3 = new Money(this);
+            money3.pos = new Point(14, 9);
+            money3.simbol = "M";
+            money3.color = ConsoleColor.Yellow;
+            money3.removeWhenInteract = true;
+            gameObjects.Add(money3);
         }
 
         private void PrintMap()
@@ -79,6 +101,7 @@ namespace RPG.Scenes
         {
             PrintMap();
             PrintPlayer();
+            PrintGameObject();
         }
 
         public void PrintPlayer()
@@ -89,9 +112,38 @@ namespace RPG.Scenes
             Console.ResetColor();
         }
 
+        private void PrintGameObject()
+        {
+            foreach (GameObject gameObject in gameObjects)
+            {
+                Console.SetCursorPosition(gameObject.pos.x, gameObject.pos.y);
+                Console.ForegroundColor = gameObject.color;
+                Console.Write(gameObject.simbol);
+                Console.ResetColor();
+            }
+        }
+
         public override void Update()
         {
             Player.MovePlayer(inputKey);
+            Interaction();
+        }
+
+        private void Interaction()
+        {
+            foreach (GameObject gameObject in gameObjects)
+            {
+                if (Player.playerPos.x == gameObject.pos.x &&
+                    Player.playerPos.y == gameObject.pos.y)
+                {
+                    gameObject.Interaction(game.Player);
+                    if (gameObject.removeWhenInteract)
+                    {
+                        gameObjects.Remove(gameObject);
+                    }
+                    return;
+                }
+            }
         }
     }
 }

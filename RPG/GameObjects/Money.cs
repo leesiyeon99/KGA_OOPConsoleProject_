@@ -9,13 +9,15 @@ namespace RPG.GameObjects
 {
     public class Money : GameObject
     {
+        public Player player;
         public Money(Scene scene) : base(scene)
         {
+            player = new Player();
         }
 
         public override void Interaction(Player player)
         {
-            throw new NotImplementedException();
+            this.player.GetMoney();
         }
     }
 }

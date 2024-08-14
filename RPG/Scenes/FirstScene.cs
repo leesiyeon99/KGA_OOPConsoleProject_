@@ -78,6 +78,12 @@ namespace RPG.Scenes
             restRoom.simbol = "R";
             restRoom.color = ConsoleColor.Blue;
             gameObjects.Add(restRoom);
+
+            DoorObject door = new DoorObject(this);
+            door.pos = new Point(8, 10);
+            door.simbol = "D";
+            door.color = ConsoleColor.Gray;
+            gameObjects.Add(door);
         }
 
         private void PrintMap()

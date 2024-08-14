@@ -8,7 +8,7 @@ namespace RPG.Scenes
 {
     internal class InventoryScene : Scene
     {
-        static public Inventory Inventory;
+        public Inventory Inventory;
         public Player Player;
         public ConsoleKey inputKey;
         public int inputValue;

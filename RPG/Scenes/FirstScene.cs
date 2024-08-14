@@ -66,6 +66,12 @@ namespace RPG.Scenes
             key.color = ConsoleColor.DarkYellow;
             key.removeWhenInteract = true;
             gameObjects.Add(key);
+
+            PrincessObject princess = new PrincessObject(this);
+            princess.pos = new Point(8, 13);
+            princess.simbol = "P";
+            princess.color = ConsoleColor.Magenta;
+            gameObjects.Add(princess);
         }
 
         private void PrintMap()

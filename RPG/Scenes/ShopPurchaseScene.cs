@@ -15,7 +15,6 @@ namespace RPG.Scenes
         public Inventory Inventory;
         public Player player;
         public ConsoleKey inputKey;
-        public int inputValue;
         public ShopPurchaseScene(Game game) : base(game)
         {
             player = new Player();
@@ -40,7 +39,6 @@ namespace RPG.Scenes
         {
             inputKey = Console.ReadKey().Key;
             Console.WriteLine();
-            inputValue = (int)inputKey - (int)ConsoleKey.D0;
         }
 
         public override void Render()
@@ -73,21 +71,21 @@ namespace RPG.Scenes
         public void Purchase()
         {
             Item item = null;
-            switch (inputValue)
+            switch (inputKey)
             {
-                case 0:
+                case ConsoleKey.D0:
                     game.ChangeScene(SceneType.ShopMenu);
                     return;
-                case 1:
+                case ConsoleKey.D1:
                     item = items[0];
                     break;
-                case 2:
+                case ConsoleKey.D2:
                     item = items[1];
                     break;
-                case 3:
+                case ConsoleKey.D3:
                     item = items[2];
                     break;
-                case 4:
+                case ConsoleKey.D4:
                     item = items[3];
                     break;
                 default:

@@ -51,6 +51,10 @@ namespace RPG.Scenes
             {
                 game.ChangeScene(SceneType.ShopSale);
             }
+            else if (inputKey == ConsoleKey.D0)
+            {
+                game.ChangeScene(SceneType.FirstMap);
+            }
             else
             {
                 Console.WriteLine("잘못입력하셨습니다.");

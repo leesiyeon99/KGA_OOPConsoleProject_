@@ -11,4 +11,13 @@ namespace RPG
     {
         void Interaction(Player player);
     }
+
+    public interface IGainable
+    {
+        void Gain(Player user);
+    }
+    public interface IUseable
+    {
+        void Use(Player player);
+    }
 }

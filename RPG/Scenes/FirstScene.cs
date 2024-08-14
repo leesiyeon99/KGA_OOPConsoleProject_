@@ -58,6 +58,13 @@ namespace RPG.Scenes
             money3.color = ConsoleColor.Yellow;
             money3.removeWhenInteract = true;
             gameObjects.Add(money3);
+
+            Key key = new Key(this);
+            key.pos = new Point(5, 9);
+            key.simbol = "K";
+            key.color = ConsoleColor.DarkYellow;
+            key.removeWhenInteract = true;
+            gameObjects.Add(key);
         }
 
         private void PrintMap()

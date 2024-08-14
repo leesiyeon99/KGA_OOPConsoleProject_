@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPG
+namespace RPG.Items
 {
-    internal class Weapon
+    public class Weapon : Item, IGainable
     {
+        public int attack;
+
+        public void Gain(Player user)
+        {
+            player.attack += attack;
+        }
     }
 }

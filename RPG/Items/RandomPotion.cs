@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPG
+namespace RPG.Items
 {
-    internal class RandomPotion
+    public class RandomPotion : Item, IUseable
     {
+        public int luck;
+
+        public void Use(Player player)
+        {
+            Random random = new Random();
+            luck = random.Next(1, 100);
+            player.lucky += luck;
+            Console.WriteLine($"행운이 {luck}만큼 증가했습니다. 현재 행운은{player.lucky}입니다.");
+            Thread.Sleep(1000);
+        }
     }
 }

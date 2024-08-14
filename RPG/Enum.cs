@@ -17,4 +17,7 @@ namespace RPG
 
         Size
     }
+    public enum ItemType { Potion, Weapon, Armor, RandomPotion, Key }
+
+    public enum MonsterType { LowGradeZombie, IntermediateZombie, HighGradeZombie, BossZombie }
 }

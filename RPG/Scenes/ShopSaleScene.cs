@@ -53,6 +53,12 @@
 
         public void Sell()
         {
+            if (inputKey == ConsoleKey.D0)
+            {
+                game.ChangeScene(SceneType.ShopMenu);
+                return;
+            }
+
             if (Inventory.items.Count > 0)
             {
                 Player.money += Inventory.items[inputValue - 1].cost;
@@ -62,6 +68,8 @@
             }
             else
             {
+                Console.WriteLine("판매 할 수 있는 아이템이 없습니다.");
+                Thread.Sleep(1000);
                 return;
             }
         }

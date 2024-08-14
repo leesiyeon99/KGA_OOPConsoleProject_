@@ -13,7 +13,9 @@ namespace RPG
         LastMap,
         Battle,
         Inventory,
-        Shop,
+        ShopMenu,
+        ShopPurchase,
+        ShopSale,
 
         Size
     }

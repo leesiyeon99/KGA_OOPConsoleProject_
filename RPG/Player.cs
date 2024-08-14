@@ -30,6 +30,7 @@ namespace RPG
 
         public Player()
         {
+            inventory = new Inventory();
         }
         public void UseItem(Item item)
         {
@@ -45,6 +46,21 @@ namespace RPG
                 Thread.Sleep(1000);
             }
         }
+
+        public void LoseGold(int cost)
+        {
+            money -= cost;
+        }
+        public bool GainItem(Item item)
+        {
+            if (item is IGainable)
+            {
+                IGainable gainable = (IGainable)item;
+                gainable.Gain(this);
+            }
+            return inventory.AddItem(item);
+        }
+
         public void ShowState()
         {
             Console.WriteLine($"골드: {money}");

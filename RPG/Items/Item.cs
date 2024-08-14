@@ -26,6 +26,7 @@ namespace RPG.Items
                     potion.explain = "체력이 50 회복되는 포션입니다.";
                     potion.hp = 50;
                     potion.cost = 100;
+                    potion.type = ItemType.Potion;
                     return potion;
                 }
                 else if (type == ItemType.Weapon)
@@ -35,6 +36,7 @@ namespace RPG.Items
                     weapon.explain = "공격력이 30 상승하는 검입니다.";
                     weapon.attack = 30;
                     weapon.cost = 300;
+                    weapon.type = ItemType.Weapon;
                     return weapon;
                 }
                 else if (type == ItemType.Armor)
@@ -44,6 +46,7 @@ namespace RPG.Items
                     armor.explain = "방어력이 30 증가하는 방어구입니다.";
                     armor.defense = 30;
                     armor.cost = 300;
+                    armor.type = ItemType.Armor;
                     return armor;
                 }
                 else if (type == ItemType.RandomPotion)
@@ -55,6 +58,7 @@ namespace RPG.Items
                     Random random = new Random();
                     int randomLuck = random.Next(1, 100);
                     randomPotion.luck = randomLuck;
+                    randomPotion.type = ItemType.RandomPotion;
                     return randomPotion;
                 }
                 else if (type == ItemType.Key)

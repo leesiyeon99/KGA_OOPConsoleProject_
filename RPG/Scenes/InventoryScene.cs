@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Scenes
 {
-    internal class InventoryScene : Scene
+    public class InventoryScene : Scene
     {
         public Inventory Inventory;
         public Player Player;

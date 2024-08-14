@@ -87,6 +87,12 @@ namespace RPG.Scenes
             door.simbol = "D";
             door.color = ConsoleColor.Gray;
             gameObjects.Add(door);
+
+            ShopObject shop = new ShopObject(this);
+            shop.pos = new Point(14, 1);
+            shop.simbol = "S";
+            shop.color = ConsoleColor.Cyan;
+            gameObjects.Add(shop);
         }
 
         private void PrintMap()

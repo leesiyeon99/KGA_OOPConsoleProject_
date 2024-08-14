@@ -76,7 +76,9 @@ namespace RPG
             scenes[(int)SceneType.Title] = new TitleScene(this);
             //scenes[(int)SceneType.Battle] = new BattleScene(this);
             scenes[(int)SceneType.Inventory] = new InventoryScene(this);
-            //scenes[(int)SceneType.Shop] = new ShopScene(this);
+            scenes[(int)SceneType.ShopMenu] = new ShopMenuScene(this);
+            scenes[(int)SceneType.ShopPurchase] = new ShopPurchaseScene(this);
+            scenes[(int)SceneType.ShopSale] = new ShopSaleScene(this);
             scenes[(int)SceneType.FirstMap] = new FirstScene(this);
             scenes[(int)SceneType.LastMap] = new LastScene(this); 
 

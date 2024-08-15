@@ -1,5 +1,6 @@
 ﻿using RPG.GameObjects;
 using RPG.Items;
+using RPG.Monsters;
 
 namespace RPG.Scenes
 {
@@ -63,7 +64,7 @@ namespace RPG.Scenes
             HammerObject hammer = new HammerObject(this);
             hammer.pos = new Point(13, 2);
             hammer.simbol = "H";
-            hammer.color = ConsoleColor.Gray;
+            hammer.color = ConsoleColor.Yellow;
             gameObjects.Add(hammer);
 
             ShopObject shop = new ShopObject(this);
@@ -71,6 +72,18 @@ namespace RPG.Scenes
             shop.simbol = "S";
             shop.color = ConsoleColor.Cyan;
             gameObjects.Add(shop);
+
+            MonsterObject monster1 = new MonsterObject(this);
+            monster1.pos = new Point(8, 5);
+            monster1.simbol = "Z";
+            monster1.color = ConsoleColor.Red;
+            gameObjects.Add(monster1);
+
+            MonsterObject monster2 = new MonsterObject(this);
+            monster2.pos = new Point(10, 2);
+            monster2.simbol = "B";
+            monster2.color = ConsoleColor.Red;
+            gameObjects.Add(monster2);
         }
 
         public override void Enter()

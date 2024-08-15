@@ -17,7 +17,7 @@ namespace RPG.Scenes
 
         public override void Exit()
         {
-            if (Player.playerPos.x == 14 &&  Player.playerPos.y == 1)
+            if (Player.playerPos.x == 14 &&  Player.playerPos.y == 1 || Player.playerPos.x == 14 && Player.playerPos.y == 2)
             {
                 Player.playerPos.x = 14;
                 Player.playerPos.y = 2;
@@ -63,7 +63,7 @@ namespace RPG.Scenes
             }
             else if (inputKey == ConsoleKey.D0)
             {
-                if (Player.playerPos.x == 14 && Player.playerPos.y == 1)
+                if (Player.playerPos.x == 14 && Player.playerPos.y == 2 || Player.playerPos.x == 14 && Player.playerPos.y == 1)
                 {
                     game.ChangeScene(SceneType.FirstMap);
                 }

@@ -83,7 +83,7 @@ namespace RPG
             scenes[(int)SceneType.FirstMap] = new FirstScene(this);
             scenes[(int)SceneType.LastMap] = new LastScene(this); 
 
-            curScene = scenes[(int)SceneType.LastMap];
+            curScene = scenes[(int)SceneType.FirstMap];
             curScene.Enter();
         }
 

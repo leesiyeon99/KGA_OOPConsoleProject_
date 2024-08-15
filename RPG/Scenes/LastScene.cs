@@ -1,9 +1,18 @@
-﻿namespace RPG.Scenes
+﻿using RPG.GameObjects;
+using RPG.Items;
+
+namespace RPG.Scenes
 {
     public class LastScene : Scene
     {
         private char[,] Map;
+        private Point playerPos;
         public ConsoleKey inputKey;
+        private Player Player;
+        private Inventory inventory;
+        static public Item Item;
+
+        public List<GameObject> gameObjects;
         public LastScene(Game game) : base(game)
         {
             Map = new char[,]
@@ -25,6 +34,37 @@
                 { 'f','t','t','t','t','t','t','t','t','t','t','t','t','t','t','f'}, //13
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}
             };
+            Item = Item.ItemFactory.Create(ItemType.Hammer);
+            game.MapChange(this);
+            Player = new Player(2, 1, Map);
+            gameObjects = new List<GameObject>();
+
+            HiddenFloorObject hiddenFloor1 = new HiddenFloorObject(this);
+            hiddenFloor1.pos = new Point(1, 6);
+            hiddenFloor1.simbol = " ";
+            gameObjects.Add(hiddenFloor1);
+
+            HiddenFloorObject hiddenFloor2 = new HiddenFloorObject(this);
+            hiddenFloor2.pos = new Point(2, 6);
+            hiddenFloor2.simbol = " ";
+            gameObjects.Add(hiddenFloor2);
+
+            HiddenFloorObject hiddenFloor3 = new HiddenFloorObject(this);
+            hiddenFloor3.pos = new Point(3, 6);
+            hiddenFloor3.simbol = " ";
+            gameObjects.Add(hiddenFloor3);
+
+            HiddenWallObject hiddenWall = new HiddenWallObject(this);
+            hiddenWall.pos = new Point(4, 6);
+            hiddenWall.simbol = "#";
+            hiddenWall.color = ConsoleColor.White;
+            gameObjects.Add(hiddenWall);
+
+            HammerObject hammer = new HammerObject(this);
+            hammer.pos = new Point(13, 2);
+            hammer.simbol = "H";
+            hammer.color = ConsoleColor.Gray;
+            gameObjects.Add(hammer);
         }
 
         public override void Enter()
@@ -37,15 +77,28 @@
 
         public override void Exit()
         {
-            throw new NotImplementedException();
+
         }
 
         public override void Input()
         {
             inputKey = Console.ReadKey(true).Key;
         }
-
+        public void PrintPlayer()
+        {
+            Console.SetCursorPosition(Player.playerPos.x, Player.playerPos.y);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("P");
+            Console.ResetColor();
+        }
         public override void Render()
+        {
+            PrintMap();
+            PrintPlayer();
+            PrintGameObject();
+        }
+
+        private void PrintMap()
         {
             Console.Clear();
             for (int x = 0; x < Map.GetLength(0); x++)
@@ -69,7 +122,46 @@
 
         public override void Update()
         {
-            throw new NotImplementedException();
+            Player.MovePlayer(inputKey);            
+            Interaction();
+            OpenInventory();
+
+        }
+
+        private void PrintGameObject()
+        {
+            foreach (GameObject gameObject in gameObjects)
+            {
+                Console.SetCursorPosition(gameObject.pos.x, gameObject.pos.y);
+                Console.ForegroundColor = gameObject.color;
+                Console.Write(gameObject.simbol);
+                Console.ResetColor();
+            }
+        }
+
+        private void OpenInventory()
+        {
+            if (inputKey == ConsoleKey.E)
+            {
+                game.ChangeScene(SceneType.Inventory);
+            }
+        }
+
+        private void Interaction()
+        {
+            foreach (GameObject gameObject in gameObjects)
+            {
+                if (Player.playerPos.x == gameObject.pos.x &&
+                    Player.playerPos.y == gameObject.pos.y)
+                {
+                    gameObject.Interaction(Player);
+                    if (gameObject.removeWhenInteract)
+                    {
+                        gameObjects.Remove(gameObject);
+                    }
+                    return;
+                }
+            }
         }
     }
 }

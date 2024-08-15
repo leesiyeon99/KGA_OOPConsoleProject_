@@ -61,7 +61,7 @@ namespace RPG
             curScene = scenes[(int)SceneType.Battle];
             BattleScene battleScene = (BattleScene)curScene;
             battleScene.SetBattle(player, monster);
-            curScene.Enter();
+            curScene.Enter(); 
         }
 
         public void Over()
@@ -83,7 +83,7 @@ namespace RPG
             scenes[(int)SceneType.FirstMap] = new FirstScene(this);
             scenes[(int)SceneType.LastMap] = new LastScene(this); 
 
-            curScene = scenes[(int)SceneType.Title];
+            curScene = scenes[(int)SceneType.LastMap];
             curScene.Enter();
         }
 

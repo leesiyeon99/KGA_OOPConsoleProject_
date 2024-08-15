@@ -6,7 +6,7 @@ namespace RPG.Scenes
     public class BattleScene : Scene
     {
         private Player player;
-        private Monster[] monsters;
+        public Monster[] monsters;
         private Monster monster;
         private ConsoleKey inputKey;
         MonsterObject monsterObject;
@@ -21,7 +21,6 @@ namespace RPG.Scenes
 
         public void SetBattle(Player player, Monster monster)
         {
-
             this.player = player;
             this.monster = monster;
         }
@@ -94,19 +93,16 @@ namespace RPG.Scenes
             {
                 if (Player.playerPos.x == 1 && Player.playerPos.y == 8)
                 {
-                    Console.Clear();
                     Player.playerPos.x = 1;
                     Player.playerPos.y = 7;
-                    Console.WriteLine("도망치는 중입니다...");
-                    Thread.Sleep(1000);
+                    Run();
                 }
                 else if (Player.playerPos.x == 12 && Player.playerPos.y == 8)
                 {
-                    Console.Clear();
                     Player.playerPos.x = 12;
                     Player.playerPos.y = 7;
-                    Console.WriteLine("도망치는 중입니다...");
-                    Thread.Sleep(1000);
+                    Run();
+
                 }
                 game.ReturnScene();
             }
@@ -186,6 +182,13 @@ namespace RPG.Scenes
                 return true;
             }
             return false;
+        }
+
+        public void Run()
+        {
+            Console.Clear();
+            Console.WriteLine("도망치는 중입니다...");
+            Thread.Sleep(1000);
         }
     }
 }

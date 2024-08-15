@@ -12,9 +12,8 @@ namespace RPG.Scenes
         private Inventory inventory;
         static public Item Item;
 
-        private List<GameObject> gameObjects;
+        public List<GameObject> gameObjects;
 
-        private ConsoleKey input;
         public FirstScene(Game game) : base(game)
         {
             Map = new char[,]

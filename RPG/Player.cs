@@ -20,7 +20,7 @@ namespace RPG
         Inventory inventory;
         public Player(int x, int y, char[,] maps)
         {
-            Point point = new Point(3, 1);
+            Point point = new Point(x, y);
             point.x = x;
             point.y = y;
             playerPos = point;

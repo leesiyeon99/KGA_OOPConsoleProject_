@@ -65,10 +65,19 @@ namespace RPG.Items
                 {
                     Key key = new Key();
                     key.name = "열쇠";
-                    key.cost = 0;
+                    key.cost = 500;
                     key.explain = "어딘가를 열 수 있는 열쇠이다.";
                     key.type = ItemType.Key;
                     return key;
+                }
+                else if (type == ItemType.Hammer)
+                {
+                    Hammer hammer = new Hammer();
+                    hammer.name = "망치";
+                    hammer.cost = 500;
+                    hammer.explain = "어딘가를 부술 수 있는 망치이다.";
+                    hammer.type = ItemType.Hammer;
+                    return hammer;
                 }
                 else
                 {

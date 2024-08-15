@@ -5,6 +5,7 @@ namespace RPG.Scenes
     public class ShopMenuScene : Scene
     {
         public ConsoleKey inputKey;
+        Game Game;
         public ShopMenuScene(Game game) : base(game)
         {
 
@@ -16,8 +17,17 @@ namespace RPG.Scenes
 
         public override void Exit()
         {
-            Player.playerPos.x = 14;
-            Player.playerPos.y = 2;
+            if (Player.playerPos.x == 14 &&  Player.playerPos.y == 1)
+            {
+                Player.playerPos.x = 14;
+                Player.playerPos.y = 2;
+            }
+            else
+            {
+                Player.playerPos.x = 5;
+                Player.playerPos.y = 2;
+            }
+
         }
 
         public override void Input()
@@ -53,7 +63,15 @@ namespace RPG.Scenes
             }
             else if (inputKey == ConsoleKey.D0)
             {
-                game.ChangeScene(SceneType.FirstMap);
+                if (Player.playerPos.x == 14 && Player.playerPos.y == 1)
+                {
+                    game.ChangeScene(SceneType.FirstMap);
+                }
+                else
+                {
+                    game.ChangeScene(SceneType.LastMap);
+                }
+                    
             }
             else
             {

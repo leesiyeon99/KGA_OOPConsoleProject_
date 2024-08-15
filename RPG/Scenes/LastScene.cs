@@ -65,6 +65,12 @@ namespace RPG.Scenes
             hammer.simbol = "H";
             hammer.color = ConsoleColor.Gray;
             gameObjects.Add(hammer);
+
+            ShopObject shop = new ShopObject(this);
+            shop.pos = new Point(5, 1);
+            shop.simbol = "S";
+            shop.color = ConsoleColor.Cyan;
+            gameObjects.Add(shop);
         }
 
         public override void Enter()

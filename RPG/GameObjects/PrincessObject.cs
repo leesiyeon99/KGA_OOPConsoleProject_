@@ -16,6 +16,7 @@ namespace RPG.GameObjects
         public override void Interaction(Player player)
         {
             game.ChangeScene(SceneType.LastMap);
+            removeWhenInteract = false;
         }
     }
 }

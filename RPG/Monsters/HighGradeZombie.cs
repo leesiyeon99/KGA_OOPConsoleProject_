@@ -10,7 +10,7 @@ namespace RPG.Monsters
     {
         public override void Skill()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("원거리 마법 공격!");
         }
     }
 }

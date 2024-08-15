@@ -100,6 +100,14 @@ namespace RPG.Scenes
                     Console.WriteLine("도망치는 중입니다...");
                     Thread.Sleep(1000);
                 }
+                else if (Player.playerPos.x == 12 && Player.playerPos.y == 8)
+                {
+                    Console.Clear();
+                    Player.playerPos.x = 12;
+                    Player.playerPos.y = 7;
+                    Console.WriteLine("도망치는 중입니다...");
+                    Thread.Sleep(1000);
+                }
                 game.ReturnScene();
             }
             else

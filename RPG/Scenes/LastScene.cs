@@ -69,10 +69,6 @@ namespace RPG.Scenes
 
         public override void Enter()
         {
-            Console.Clear();
-            Console.WriteLine("다음 맵으로 이동합니다...");
-            Thread.Sleep(1000);
-            game.MapChange(this);
         }
 
         public override void Exit()

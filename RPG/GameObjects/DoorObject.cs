@@ -98,7 +98,7 @@ namespace RPG.GameObjects
                 else
                 {
                     Console.SetCursorPosition(0, Console.WindowHeight - 14);
-                    Console.Write("잘못입력하셨습니다. 예(Y)/아니요(N)로 입력해주세요");
+                    Console.Write("잘못입력하셨습니다.");
                     Thread.Sleep(1000);
                 }
             }

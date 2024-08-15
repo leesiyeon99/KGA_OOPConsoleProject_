@@ -20,18 +20,18 @@ namespace RPG.Scenes
             {
                 // 0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}, //0
-                { 'f','t','p','t','f','s','f','e','t','t','t','f','t','t','t','f'}, //1
+                { 'f','t','p','t','f','t','f','e','t','t','t','f','t','t','t','f'}, //1
                 { 'f','t','t','t','f','t','f','f','f','f','b','f','t','h','t','f'}, //2
                 { 'f','t','t','t','f','t','f','t','t','t','t','f','t','t','t','f'}, //3
                 { 'f','t','t','t','f','t','t','t','f','f','f','f','t','t','t','f'}, //4
                 { 'f','t','t','t','f','f','f','t','m','t','t','f','t','t','t','f'}, //5
                 { 'f','s','s','s','t','t','f','t','f','f','t','f','t','t','t','f'}, //6
-                { 'f','t','t','t','f','t','f','t','t','f','t','f','t','t','t','f'}, //7
+                { 'f','t','t','t','f','t','f','t','f','r','t','f','t','t','t','f'}, //7
                 { 'f','t','t','t','f','t','f','f','f','f','t','f','t','t','t','f'}, //8
                 { 'f','t','t','t','f','t','t','t','t','t','t','f','t','t','t','f'}, //9
                 { 'f','t','t','t','f','f','f','f','f','f','f','f','t','t','t','f'}, //10
                 { 'f','t','t','t','t','t','t','t','t','t','t','t','t','t','t','f'}, //11
-                { 'f','t','t','t','t','t','t','t','t','t','t','t','t','t','t','f'}, //12
+                { 'f','t','s','t','t','t','t','t','t','t','t','t','t','t','t','f'}, //12
                 { 'f','t','t','t','t','t','t','t','t','t','t','t','t','t','t','f'}, //13
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}
             };
@@ -68,7 +68,7 @@ namespace RPG.Scenes
             gameObjects.Add(hammer);
 
             ShopObject shop = new ShopObject(this);
-            shop.pos = new Point(5, 1);
+            shop.pos = new Point(2, 12);
             shop.simbol = "S";
             shop.color = ConsoleColor.Cyan;
             gameObjects.Add(shop);
@@ -84,6 +84,12 @@ namespace RPG.Scenes
             monster2.simbol = "B";
             monster2.color = ConsoleColor.Red;
             gameObjects.Add(monster2);
+
+            RestRoomObject restRoom = new RestRoomObject(this);
+            restRoom.pos = new Point(9, 7);
+            restRoom.simbol = "R";
+            restRoom.color = ConsoleColor.Blue;
+            gameObjects.Add(restRoom);
         }
 
         public override void Enter()

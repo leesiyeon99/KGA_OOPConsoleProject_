@@ -47,8 +47,17 @@ namespace RPG.GameObjects
                 }
                 else if (inputKey == ConsoleKey.N)
                 {
-                    Player.playerPos.x = 7;
-                    Player.playerPos.y = 7;
+                    if (Player.playerPos.x == 8 &&  Player.playerPos.y == 7)
+                    {
+                        Player.playerPos.x = 7;
+                        Player.playerPos.y = 7;
+                    }
+                    else
+                    {
+                        Player.playerPos.x = 10;
+                        Player.playerPos.y = 7;
+                    }
+
                     return false;
                 }
                 else

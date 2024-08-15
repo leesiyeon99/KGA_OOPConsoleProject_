@@ -161,6 +161,7 @@ namespace RPG.Scenes
                 PlayerPos();
                 Player.money -= 500;
                 if (Player.money < 0) { Player.money = 0; }
+                Player.hp = 1;
                 Console.WriteLine("플레이어가 죽었습니다. 500원을 잃었습니다.");
                 Thread.Sleep(2000);
                 game.ReturnScene();

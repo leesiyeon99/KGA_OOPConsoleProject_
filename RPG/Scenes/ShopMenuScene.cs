@@ -24,8 +24,8 @@ namespace RPG.Scenes
             }
             else
             {
-                Player.playerPos.x = 5;
-                Player.playerPos.y = 2;
+                Player.playerPos.x = 2;
+                Player.playerPos.y = 11;
             }
 
         }

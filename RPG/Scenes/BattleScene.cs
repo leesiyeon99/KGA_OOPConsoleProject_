@@ -21,10 +21,10 @@ namespace RPG.Scenes
             monsters[3] = Monster.MonsterFactory.Create(MonsterType.BossZombie);
         }
 
-        public void SetBattle(Player player, Monster monster)
+        public void SetBattle(Player player, MonsterObject monsterObject)
         {
             this.player = player;
-            this._monster = monster;
+            this.monsterObject = monsterObject;
         }
 
         public override void Enter()
@@ -81,7 +81,7 @@ namespace RPG.Scenes
                 _monster = monsters[3];
                 Console.WriteLine($" 이름: {monsters[3].name}");
                 Console.WriteLine($" 설명: {monsters[3].explain}");
-                Console.WriteLine($" 체력 : {monsters[3].hp} / {250}  공격 : {monsters[3].attack} / 방어 : {monsters[3].defense}");
+                Console.WriteLine($" 체력 : {monsters[3].hp} / {150}  공격 : {monsters[3].attack} / 방어 : {monsters[3].defense}");
             }
             Console.WriteLine();
             Console.WriteLine("1. 싸우기");
@@ -184,6 +184,7 @@ namespace RPG.Scenes
                 Console.WriteLine($"전투에서 승리하셨습니다! {_monster.cost}원을 얻었습니다.");
                 Console.WriteLine("*******************************************");
                 Thread.Sleep(2000);
+                monsterObject.removeWhenInteract = true;
                 game.ReturnScene();
                 return true;
             }
@@ -220,18 +221,6 @@ namespace RPG.Scenes
                 Player.playerPos.x = 10;
                 Player.playerPos.y = 3;
 
-            }
-        }
-
-         public bool MonsterDieOrAlive(Monster monster)
-        {
-            if (monster.hp <= 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
             }
         }
 

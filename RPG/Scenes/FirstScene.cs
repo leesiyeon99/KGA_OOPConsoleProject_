@@ -186,16 +186,19 @@ namespace RPG.Scenes
 
         private void Interaction()
         {
+
             foreach (GameObject gameObject in gameObjects)
             {
+                if (gameObject.removeWhenInteract)
+                {
+                    gameObjects.Remove(gameObject);
+                    return;
+                }
+
                 if (Player.playerPos.x == gameObject.pos.x &&
                     Player.playerPos.y == gameObject.pos.y)
                 {
                     gameObject.Interaction(Player);
-                    if (gameObject.removeWhenInteract)
-                    {
-                        gameObjects.Remove(gameObject);
-                    }
                     return;
                 }
             }

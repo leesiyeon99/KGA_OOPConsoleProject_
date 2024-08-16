@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using RPG.GameObjects;
 using RPG.Monsters;
 using RPG.Scenes;
 using static System.Formats.Asn1.AsnWriter;
@@ -55,13 +56,13 @@ namespace RPG
             prevScene = curScene;
         }
 
-        public void StartBattle(Monster monster)
+        public void StartBattle(MonsterObject monsterObject)
         {
             prevScene = curScene;
             curScene.Exit();
             curScene = scenes[(int)SceneType.Battle];
             BattleScene battleScene = (BattleScene)curScene;
-            battleScene.SetBattle(player, monster);
+            battleScene.SetBattle(player, monsterObject);
             curScene.Enter();
 
         }

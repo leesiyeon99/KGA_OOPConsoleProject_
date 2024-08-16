@@ -18,7 +18,7 @@ namespace RPG.GameObjects
 
         public override void Interaction(Player player)
         {
-            game.StartBattle(monster);
+            game.StartBattle(this);
         }
     }
 }

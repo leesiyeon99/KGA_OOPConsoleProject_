@@ -13,6 +13,7 @@ namespace RPG.Scenes
         private Inventory inventory;
         static public Item Item;
         public Monster Monster;
+        public MonsterObject[] monsterObjects;
 
         public List<GameObject> gameObjects;
         public LastScene(Game game) : base(game)
@@ -180,14 +181,16 @@ namespace RPG.Scenes
         {
             foreach (GameObject gameObject in gameObjects)
             {
+                if (gameObject.removeWhenInteract)
+                {
+                    gameObjects.Remove(gameObject);
+                    return;
+                }
+
                 if (Player.playerPos.x == gameObject.pos.x &&
                     Player.playerPos.y == gameObject.pos.y)
                 {
                     gameObject.Interaction(Player);
-                    if (gameObject.removeWhenInteract)
-                    {
-                        gameObjects.Remove(gameObject);
-                    }
                     return;
                 }
             }

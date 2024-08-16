@@ -120,7 +120,7 @@ namespace RPG.Scenes
             int damageToDefense = Math.Min(Player.defense, monster.attack);
             Player.defense -= damageToDefense;
 
-            if (Player.defense <= 0)
+            if (Player.defense < 0)
             {
                 Player.defense = 0;
                 int remainingDamage = monster.attack - damageToDefense;
@@ -139,7 +139,7 @@ namespace RPG.Scenes
             int damageToDefense = Math.Min(monster.defense, Player.attack);
             monster.defense -= damageToDefense;
 
-            if (monster.defense <= 0)
+            if (monster.defense < 0)
             {
                 monster.defense = 0;
                 int remainingDamage = Player.attack - damageToDefense;

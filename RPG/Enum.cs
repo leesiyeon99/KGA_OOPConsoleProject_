@@ -16,6 +16,7 @@ namespace RPG
         ShopMenu,
         ShopPurchase,
         ShopSale,
+        GameOver,
 
         Size
     }

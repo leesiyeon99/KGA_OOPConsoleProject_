@@ -36,7 +36,7 @@ namespace RPG.Scenes
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}
            };
             Item = Item.ItemFactory.Create(ItemType.Key);
-            game.MapChange(this);
+
             Player = new Player(3, 1, Map);
             gameObjects = new List<GameObject>();
 
@@ -145,6 +145,7 @@ namespace RPG.Scenes
             PrintMap();
             PrintPlayer();
             PrintGameObject();
+            game.MapChange(this);
         }
 
         public void PrintPlayer()

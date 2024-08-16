@@ -36,7 +36,7 @@ namespace RPG.Scenes
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}
             };
             Item = Item.ItemFactory.Create(ItemType.Hammer);
-            game.MapChange(this);
+
             Player = new Player(2, 1, Map);
             gameObjects = new List<GameObject>();
 
@@ -90,6 +90,12 @@ namespace RPG.Scenes
             restRoom.simbol = "R";
             restRoom.color = ConsoleColor.Blue;
             gameObjects.Add(restRoom);
+
+            EscapeObject escape = new EscapeObject(this);
+            escape.pos = new Point(7, 1);
+            escape.simbol = "E";
+            escape.color = ConsoleColor.DarkRed;
+            gameObjects.Add(escape);
         }
 
         public override void Enter()
@@ -117,6 +123,7 @@ namespace RPG.Scenes
             PrintMap();
             PrintPlayer();
             PrintGameObject();
+            game.MapChange(this);
         }
 
         private void PrintMap()

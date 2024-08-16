@@ -145,8 +145,8 @@ namespace RPG.Scenes
         public override void Render()
         {
             PrintMap();
-            PrintPlayer();
             PrintGameObject();
+            PrintPlayer();
             game.MapChange(this);
         }
 

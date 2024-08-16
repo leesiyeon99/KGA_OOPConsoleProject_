@@ -38,7 +38,7 @@ namespace RPG.Scenes
             };
             Item = Item.ItemFactory.Create(ItemType.Hammer);
 
-            Player = new Player(5, 2, Map);
+            Player = new Player(2, 1, Map);
             gameObjects = new List<GameObject>();
 
             HiddenFloorObject hiddenFloor1 = new HiddenFloorObject(this);

@@ -75,6 +75,7 @@ namespace RPG.Scenes
             }
             else
             {
+                Console.WriteLine();
                 Console.WriteLine("잘못입력하셨습니다.");
                 Thread.Sleep(1000);
             }

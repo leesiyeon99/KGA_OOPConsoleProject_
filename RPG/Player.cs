@@ -13,7 +13,7 @@ namespace RPG
         public char[,] Map;
         static public int money = 500;
         static public int attack = 20;
-        static public int lucky = 100;
+        static public int lucky = 0;
         static public int defense = 20;
         static public int hp = 100;
         public int MaxHp = 100;

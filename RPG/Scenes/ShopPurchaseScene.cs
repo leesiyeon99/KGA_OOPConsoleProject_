@@ -71,26 +71,33 @@ namespace RPG.Scenes
         public void Purchase()
         {
             Item item = null;
-            switch (inputKey)
+
+            if (inputKey == ConsoleKey.D0)
             {
-                case ConsoleKey.D0:
-                    game.ChangeScene(SceneType.ShopMenu);
-                    return;
-                case ConsoleKey.D1:
-                    item = items[0];
-                    break;
-                case ConsoleKey.D2:
-                    item = items[1];
-                    break;
-                case ConsoleKey.D3:
-                    item = items[2];
-                    break;
-                case ConsoleKey.D4:
-                    item = items[3];
-                    break;
-                default:
-                    Console.WriteLine("잘못 입력하셨습니다.");
-                    break;
+                game.ChangeScene(SceneType.ShopMenu);
+                return;
+            }
+            else if (inputKey == ConsoleKey.D1)
+            {
+                item = items[0];
+            }
+            else if (inputKey == ConsoleKey.D2)
+            {
+                item = items[1];
+            }
+            else if (inputKey == ConsoleKey.D3)
+            {
+                item = items[2];
+            }
+            else if (inputKey == ConsoleKey.D4)
+            {
+                item = items[3];
+            }
+            else
+            {
+                Console.WriteLine("잘못 입력하셨습니다.");
+                Thread.Sleep(1000);
+                return;
             }
 
             if (Player.money < item.cost)

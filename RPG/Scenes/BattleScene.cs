@@ -103,6 +103,7 @@ namespace RPG.Scenes
                 Console.WriteLine("몬스터가 공격합니다.");
                 _monster.Skill();
                 Thread.Sleep(800);
+                if (PlayerVoid()) { return; }
                 MonsterAttack();
                 PlayerDied();
             }
@@ -122,7 +123,6 @@ namespace RPG.Scenes
         {
             int damageToDefense = Math.Min(Player.defense, _monster.attack);
             Player.defense -= damageToDefense;
-
             if (Player.defense <= 0)
             {
                 Player.defense = 0;
@@ -221,6 +221,31 @@ namespace RPG.Scenes
                 Player.playerPos.x = 10;
                 Player.playerPos.y = 3;
 
+            }
+        }
+
+        public bool PlayerVoid()
+        {
+            Random random = new Random();
+            int playerAvoid = random.Next(1, 100);
+            if (Player.lucky > 50)
+            {
+                playerAvoid += 10;
+            }
+            else if (Player.lucky < 0)
+            {
+                playerAvoid -= 10;
+            }
+
+            if (playerAvoid > 70)
+            {
+                Console.WriteLine("플레이어가 공격을 운 좋게 피했습니다. 데미지를 맞지 않습니다.");
+                Thread.Sleep(1000);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

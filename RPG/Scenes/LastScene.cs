@@ -13,7 +13,6 @@ namespace RPG.Scenes
         private Inventory inventory;
         static public Item Item;
         public Monster Monster;
-        public MonsterObject[] monsterObjects;
 
         public List<GameObject> gameObjects;
         public LastScene(Game game) : base(game)

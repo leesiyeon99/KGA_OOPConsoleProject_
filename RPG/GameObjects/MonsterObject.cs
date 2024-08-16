@@ -11,9 +11,9 @@ namespace RPG.GameObjects
     public class MonsterObject : GameObject
     {
         Monster monster;
-        public MonsterObject(Scene scene) : base(scene)
+        public MonsterObject(Scene scene, Monster _monster) : base(scene)
         {
-
+            monster = _monster;
         }
 
         public override void Interaction(Player player)

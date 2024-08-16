@@ -12,6 +12,7 @@ namespace RPG.Scenes
         private Player Player;
         private Inventory inventory;
         static public Item Item;
+        public Monster Monster;
 
         public List<GameObject> gameObjects;
         public LastScene(Game game) : base(game)
@@ -73,13 +74,13 @@ namespace RPG.Scenes
             shop.color = ConsoleColor.Cyan;
             gameObjects.Add(shop);
 
-            MonsterObject monster1 = new MonsterObject(this);
+            MonsterObject monster1 = new MonsterObject(this, Monster);
             monster1.pos = new Point(8, 5);
             monster1.simbol = "Z";
             monster1.color = ConsoleColor.Red;
             gameObjects.Add(monster1);
 
-            MonsterObject monster2 = new MonsterObject(this);
+            MonsterObject monster2 = new MonsterObject(this, Monster);
             monster2.pos = new Point(10, 2);
             monster2.simbol = "B";
             monster2.color = ConsoleColor.Red;

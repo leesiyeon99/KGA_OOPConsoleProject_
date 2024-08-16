@@ -7,11 +7,13 @@ namespace RPG.Scenes
     {
         private Player player;
         public Monster[] monsters;
-        private Monster monster;
+        private Monster _monster;
         private ConsoleKey inputKey;
         MonsterObject monsterObject;
         public BattleScene(Game game) : base(game)
         {
+            monsterObject = new MonsterObject(this, _monster);
+
             monsters = new Monster[4];
             monsters[0] = Monster.MonsterFactory.Create(MonsterType.LowGradeZombie);
             monsters[1] = Monster.MonsterFactory.Create(MonsterType.IntermediateZombie);
@@ -22,7 +24,7 @@ namespace RPG.Scenes
         public void SetBattle(Player player, Monster monster)
         {
             this.player = player;
-            this.monster = monster;
+            this._monster = monster;
         }
 
         public override void Enter()
@@ -55,28 +57,28 @@ namespace RPG.Scenes
             Console.WriteLine("몬스터 정보 ");
             if (Player.playerPos.x == 1 && Player.playerPos.y == 8)
             {
-                monster = monsters[0];
+                _monster = monsters[0];
                 Console.WriteLine($" 이름: {monsters[0].name}");
                 Console.WriteLine($" 설명: {monsters[0].explain}");
                 Console.WriteLine($" 체력 : {monsters[0].hp} / {30}  공격 : {monsters[0].attack} / 방어 : {monsters[0].defense}");
             }
             else if (Player.playerPos.x == 12 && Player.playerPos.y == 8)
             {
-                monster = monsters[1];
+                _monster = monsters[1];
                 Console.WriteLine($" 이름: {monsters[1].name}");
                 Console.WriteLine($" 설명: {monsters[1].explain}");
                 Console.WriteLine($" 체력 : {monsters[1].hp} / {70}  공격 : {monsters[1].attack} / 방어 : {monsters[1].defense}");
             }
             else if (Player.playerPos.x == 8 && Player.playerPos.y == 5)
             {
-                monster = monsters[2];
+                _monster = monsters[2];
                 Console.WriteLine($" 이름: {monsters[2].name}");
                 Console.WriteLine($" 설명: {monsters[2].explain}");
                 Console.WriteLine($" 체력 : {monsters[2].hp} / {100}  공격 : {monsters[2].attack} / 방어 : {monsters[2].defense}");
             }
             else if (Player.playerPos.x == 10 && Player.playerPos.y == 2)
             {
-                monster = monsters[3];
+                _monster = monsters[3];
                 Console.WriteLine($" 이름: {monsters[3].name}");
                 Console.WriteLine($" 설명: {monsters[3].explain}");
                 Console.WriteLine($" 체력 : {monsters[3].hp} / {250}  공격 : {monsters[3].attack} / 방어 : {monsters[3].defense}");
@@ -99,6 +101,7 @@ namespace RPG.Scenes
                 if (MonsterDied()) return;
 
                 Console.WriteLine("몬스터가 공격합니다.");
+                _monster.Skill();
                 Thread.Sleep(800);
                 MonsterAttack();
                 PlayerDied();
@@ -117,13 +120,13 @@ namespace RPG.Scenes
 
         public void MonsterAttack()
         {
-            int damageToDefense = Math.Min(Player.defense, monster.attack);
+            int damageToDefense = Math.Min(Player.defense, _monster.attack);
             Player.defense -= damageToDefense;
 
-            if (Player.defense < 0)
+            if (Player.defense <= 0)
             {
                 Player.defense = 0;
-                int remainingDamage = monster.attack - damageToDefense;
+                int remainingDamage = _monster.attack - damageToDefense;
                 Player.hp -= remainingDamage;
                 Console.WriteLine($"플레이어가 {remainingDamage}의 데미지를 입었습니다.");
             }
@@ -136,14 +139,14 @@ namespace RPG.Scenes
 
         public void PlayerAttack()
         {
-            int damageToDefense = Math.Min(monster.defense, Player.attack);
-            monster.defense -= damageToDefense;
+            int damageToDefense = Math.Min(_monster.defense, Player.attack);
+            _monster.defense -= damageToDefense;
 
-            if (monster.defense < 0)
+            if (_monster.defense <= 0)
             {
-                monster.defense = 0;
+                _monster.defense = 0;
                 int remainingDamage = Player.attack - damageToDefense;
-                monster.hp -= remainingDamage;
+                _monster.hp -= remainingDamage;
                 Console.WriteLine($"몬스터가 {remainingDamage}의 데미지를 입었습니다.");
             }
             else
@@ -172,13 +175,13 @@ namespace RPG.Scenes
 
         public bool MonsterDied()
         {
-            if (monster.hp <= 0 && Player.hp > 0)
+            if (_monster.hp <= 0 && Player.hp > 0)
             {
                 Console.Clear();
-                Player.money += monster.cost;
+                Player.money += _monster.cost;
                 Console.WriteLine("*******************************************");
-                Console.WriteLine($"축하합니다. {monster.name}을/를 죽였습니다. ");
-                Console.WriteLine($"전투에서 승리하셨습니다! {monster.cost}원을 얻었습니다.");
+                Console.WriteLine($"축하합니다. {_monster.name}을/를 죽였습니다. ");
+                Console.WriteLine($"전투에서 승리하셨습니다! {_monster.cost}원을 얻었습니다.");
                 Console.WriteLine("*******************************************");
                 Thread.Sleep(2000);
                 game.ReturnScene();
@@ -217,6 +220,18 @@ namespace RPG.Scenes
                 Player.playerPos.x = 10;
                 Player.playerPos.y = 3;
 
+            }
+        }
+
+         public bool MonsterDieOrAlive(Monster monster)
+        {
+            if (monster.hp <= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

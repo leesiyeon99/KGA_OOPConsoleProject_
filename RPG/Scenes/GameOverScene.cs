@@ -35,7 +35,7 @@ namespace RPG.Scenes
         public override void Render()
         {
             Console.Clear();
-            Console.WriteLine("축하합니다 탈출하셨습니다.");
+            Console.WriteLine("축하합니다!! 탈출하셨습니다.");
             Thread.Sleep(1000);
         }
 

@@ -1,5 +1,6 @@
 ﻿using RPG.GameObjects;
 using RPG.Items;
+using RPG.Monsters;
 
 namespace RPG.Scenes
 {
@@ -11,6 +12,7 @@ namespace RPG.Scenes
         private Player Player;
         private Inventory inventory;
         static public Item Item;
+        public Monster monster;
 
         public List<GameObject> gameObjects;
 
@@ -89,13 +91,13 @@ namespace RPG.Scenes
             shop.color = ConsoleColor.Cyan;
             gameObjects.Add(shop);
 
-            MonsterObject monster1 = new MonsterObject(this);
+            MonsterObject monster1 = new MonsterObject(this, monster);
             monster1.pos = new Point(1, 8);
             monster1.simbol = "Z";
             monster1.color = ConsoleColor.Red;
             gameObjects.Add(monster1);
 
-            MonsterObject monster2 = new MonsterObject(this);
+            MonsterObject monster2 = new MonsterObject(this, monster);
             monster2.pos = new Point(12, 8);
             monster2.simbol = "Z";
             monster2.color = ConsoleColor.Red;

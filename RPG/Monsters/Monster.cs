@@ -49,8 +49,8 @@ namespace RPG.Monsters
                 {
                     HighGradeZombie highGradeZombie = new HighGradeZombie();
                     highGradeZombie.name = "상급 좀비";
-                    highGradeZombie.attack = 30;
-                    highGradeZombie.defense = 30;
+                    highGradeZombie.attack = 25;
+                    highGradeZombie.defense = 25;
                     highGradeZombie.hp = 100;
                     highGradeZombie.cost = 800;
                     highGradeZombie.explain = "강한 원거리 마법 공격을 합니다.";
@@ -61,11 +61,11 @@ namespace RPG.Monsters
                 {
                     BossZombie bossZombie = new BossZombie();
                     bossZombie.name = "보스 좀비";
-                    bossZombie.attack = 50;
-                    bossZombie.defense = 60;
-                    bossZombie.hp = 250;
+                    bossZombie.attack = 40;
+                    bossZombie.defense = 20;
+                    bossZombie.hp = 150;
                     bossZombie.cost = 1500;
-                    bossZombie.explain = "쌍철검을 사용합니다. 공격력, 방어력, 체력이 모두 높습니다. 이길려면 약간의 운이 따라줘야 할지도..";
+                    bossZombie.explain = "쌍철검을 사용합니다. 공격력, 방어력, 체력이 모두 높습니다.";
                     bossZombie.monsterType = MonsterType.BossZombie;
                     return bossZombie;
                 }

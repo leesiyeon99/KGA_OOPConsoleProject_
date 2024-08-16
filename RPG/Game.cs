@@ -62,7 +62,8 @@ namespace RPG
             curScene = scenes[(int)SceneType.Battle];
             BattleScene battleScene = (BattleScene)curScene;
             battleScene.SetBattle(player, monster);
-            curScene.Enter(); 
+            curScene.Enter();
+
         }
 
         public void Over()

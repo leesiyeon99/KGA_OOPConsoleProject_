@@ -21,7 +21,7 @@ namespace RPG.Scenes
             {
                 // 0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15
                 { 'f','f','f','f','f','f','f','f','f','f','f','f','f','f','f','f'}, //0
-                { 'f','t','p','t','f','t','f','e','t','t','t','f','t','t','t','f'}, //1
+                { 'f','t','p','t','f','i','f','e','t','t','t','f','t','t','t','f'}, //1
                 { 'f','t','t','t','f','t','f','f','f','f','b','f','t','h','t','f'}, //2
                 { 'f','t','t','t','f','t','f','t','t','t','t','f','t','t','t','f'}, //3
                 { 'f','t','t','t','f','t','t','t','f','f','f','f','t','t','t','f'}, //4
@@ -38,7 +38,7 @@ namespace RPG.Scenes
             };
             Item = Item.ItemFactory.Create(ItemType.Hammer);
 
-            Player = new Player(2, 1, Map);
+            Player = new Player(5, 2, Map);
             gameObjects = new List<GameObject>();
 
             HiddenFloorObject hiddenFloor1 = new HiddenFloorObject(this);
@@ -97,6 +97,12 @@ namespace RPG.Scenes
             escape.simbol = "E";
             escape.color = ConsoleColor.DarkRed;
             gameObjects.Add(escape);
+
+            BuffObject buff = new BuffObject(this);
+            buff.pos = new Point(5, 1);
+            buff.simbol = "★";
+            buff.color = ConsoleColor.Yellow;
+            gameObjects.Add(buff);
         }
 
         public override void Enter()

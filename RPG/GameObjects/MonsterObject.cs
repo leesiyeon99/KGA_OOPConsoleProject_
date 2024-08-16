@@ -19,6 +19,11 @@ namespace RPG.GameObjects
         public override void Interaction(Player player)
         {
             game.StartBattle(this);
+            Console.Clear();
+            Console.WriteLine("****************************");
+            Console.WriteLine("     몬스터를 만났습니다.      ");
+            Console.WriteLine("****************************");
+            Thread.Sleep(1000);
         }
     }
 }

@@ -88,7 +88,7 @@ namespace RPG
             scenes[(int)SceneType.GameOver] = new GameOverScene(this); 
 
             prevScene = scenes[(int)SceneType.GameOver];
-            curScene = scenes[(int)SceneType.Title];
+            curScene = scenes[(int)SceneType.LastMap];
             curScene.Enter();
         }
 

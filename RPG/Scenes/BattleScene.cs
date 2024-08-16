@@ -95,12 +95,12 @@ namespace RPG.Scenes
         {
             if (inputKey == ConsoleKey.D1)
             {
-                Console.WriteLine("플레이어가 공격합니다.");
+                Console.Write("플레이어가 공격합니다.");
                 Thread.Sleep(800);
                 PlayerAttack();
                 if (MonsterDied()) return;
 
-                Console.WriteLine("몬스터가 공격합니다.");
+                Console.Write("몬스터가 공격합니다.");
                 _monster.Skill();
                 Thread.Sleep(800);
                 if (PlayerVoid()) { return; }
@@ -134,7 +134,7 @@ namespace RPG.Scenes
             {
                 Console.WriteLine($"플레이어의 방어력이 {damageToDefense}만큼 공격을 막았습니다.");
             }
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
         }
 
         public void PlayerAttack()

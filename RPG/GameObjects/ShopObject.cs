@@ -17,6 +17,11 @@ namespace RPG.GameObjects
         {
             game.ChangeScene(SceneType.ShopMenu);
             removeWhenInteract = false;
+            Console.Clear();
+            Console.WriteLine("****************************");
+            Console.WriteLine("     상점 들어가는 중...     ");
+            Console.WriteLine("****************************");
+            Thread.Sleep(1000);
         }
     }
 }

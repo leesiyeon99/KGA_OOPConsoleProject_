@@ -10,7 +10,7 @@ namespace RPG.Monsters
     {
         public override void Skill()
         {
-            Console.WriteLine("기본 검으로 때립니다.");
+            Console.WriteLine("기본 검으로 공격!");
         }
     }
 }

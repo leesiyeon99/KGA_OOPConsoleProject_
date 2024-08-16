@@ -10,7 +10,7 @@ namespace RPG.Monsters
     {
         public override void Skill()
         {
-            Console.WriteLine("쌍철검을 사용합니다.");
+            Console.WriteLine("쌍철검으로 공격");
         }
     }
 }

@@ -61,9 +61,9 @@ namespace RPG.Monsters
                 {
                     BossZombie bossZombie = new BossZombie();
                     bossZombie.name = "보스 좀비";
-                    bossZombie.attack = 40;
-                    bossZombie.defense = 20;
-                    bossZombie.hp = 150;
+                    bossZombie.attack = 50;
+                    bossZombie.defense = 30;
+                    bossZombie.hp = 250;
                     bossZombie.cost = 1500;
                     bossZombie.explain = "쌍철검을 사용합니다. 공격력, 방어력, 체력이 모두 높습니다.";
                     bossZombie.monsterType = MonsterType.BossZombie;
